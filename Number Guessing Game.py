@@ -1,22 +1,31 @@
-# I am making a Number Guessing Game
-# First I import random for it to generate a random number between 0 and 10.
-import random
-# Then I created the variable number that I assigned to generate a random number everytime the user runs this program for them to guess
-number = random.randint(0, 10)
-# I will tell the user to guess the right number and that they have 9 tries, they have to input there guesses and it will be assigned to the variable I created "guess".
+# Number Guessing Game
+# The program randomly selects a number between 0 and 10. The player has 9 attempts to guess the number.
+# After each incorrect guess, the program informs the player of the remaining attempts.
+# If the player guesses correctly, they win; otherwise, they lose after 9 incorrect attempts.
+# First I will import the randint function from the random module to generate a random number.
+from random import randint
+# Then I will generate a random number between 0 and 10.
+number = randint(0, 10)
+# Now I will start the game.
+# I will print a welcome message.
+print("Welcome to the Number Guessing Game!")
+# I will ask the player to guess the number.
 print("Try to guess the number? (Range: 0 to 10)")
 print("you have 9 tries")
 guess = int(input("Enter your guess (Range: 0 to 10):"))
-# If the user inputs a guess above 10 or less than 0, then the program will print out "Invalid! guess can't be more/less than 10/0!" and ask them to guess again, and if the user still inputed above 10 then this will repeat
+# I will check if the guess is valid (between 0 and 10).
+# if guess is above 10, I will ask the player to enter a valid guess.
 while guess > 10:
     print("Invalid! guess can't be more than 10!")
     guess = int(input("Enter your guess (Range: 0 to 10): "))
+# if guess is below 0, I will ask the player to enter a valid guess.
 while guess < 0:
     print("Invalid! guess can't be less than 0!")
     guess = int(input("Enter your guess (Range: 0 to 10): "))
-# If the user inputs the right number then the program will print "Congratulation! You won the game!", else if they input a wrong number then It will print "Incorrect! You have (tries minus the number of wrong answer) more tries." and ask them again, but if they ran out of trie then the user looses and the program will print out "Incorrect! you loose" and end the game, and if the user also inputs a number grater then 10 or less than 0, then it will do the samething as the last one will did.
+# Now I will check if the guess is correct.
 if guess == number:
     print("Congratulation! You won the game!")
+# If the guess is incorrect, I will inform the player of the remaining attempts, I will repeat this process until the player runs out of attempts or guesses correctly.
 elif not guess == number:
     print("Incorrect! You have 8 more tries.")
     guess = int(input("Enter your guess (Range: 0 to 10): "))
@@ -106,7 +115,7 @@ elif not guess == number:
                                 if not guess == number:
                                     print("Incorrect! you loose")
                                     print(f"The correct number was {number}.")
-# if the user manages to put something else than a number or put more than 10 or less than 0 than the program will print out "Error!".
+# Just in case the player inputs a valid number but it's still wrong, out of range or something else that I didn't account for, I will add an else statement to catch any unexpected input.
                                 else:
                                     print("Error!")
                             else:
