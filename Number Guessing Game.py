@@ -1,8 +1,8 @@
 # I am making a Number Guessing Game
 # First I import random for it to generate a random number between 0 and 10.
-import random
+from random import randint
 # Then I created the variable number that I assigned to generate a random number everytime the user runs this program for them to guess
-number = random.randint(0, 10)
+number = randint(0, 10)
 # I will tell the user to guess the right number and that they have 9 tries, they have to input there guesses and it will be assigned to the variable I created "guess".
 print("Try to guess the number? (Range: 0 to 10)")
 print("you have 9 tries")
